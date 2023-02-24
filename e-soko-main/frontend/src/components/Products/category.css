@@ -1,0 +1,26 @@
+* {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+
+.hey {
+    position: absolute;
+    margin-top: 70px;
+    
+}
+
+.p--box {
+    width: 50px;
+    height: 65px;
+    border: 1px solid black;
+    display: inline-block;
+    border-radius: 5px;
+}
+
+.p--name {
+    font-size: 7px;
+    line-height: 8px;
+    margin-top: 30px;
+}

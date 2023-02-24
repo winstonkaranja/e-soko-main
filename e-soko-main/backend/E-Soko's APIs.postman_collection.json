@@ -1,0 +1,457 @@
+{
+	"info": {
+		"_postman_id": "5b1af9de-822b-48a5-ae41-380f25e6f6cb",
+		"name": "E-Soko's APIs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "Get all products",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"userId\":\"63e3fb144d1547e4dd514e71\",\n    \"packageName\":\"My fucking Package\",\n    \"items\": [{\n        \"_id\":\"63e3fc4c1da7e0415cc2e5b8\",\n        \"quantity\":\"3\"\n    },\n    {\n        \"_id\":\"63e3f6ac3e1014ec4b4536d8\",\n        \"quantity\":\"1\"\n    }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{port}}/api/v1/products",
+							"host": [
+								"{{port}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create a product",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "productName",
+									"value": "Peas",
+									"contentType": "multipart/form-data",
+									"type": "default"
+								},
+								{
+									"key": "productImg",
+									"contentType": "multipart/form-data",
+									"type": "file",
+									"src": "/home/space/Desktop/e-soko-images/peas.png"
+								},
+								{
+									"key": "categoryName",
+									"value": "Cereals",
+									"contentType": "multipart/form-data",
+									"type": "default"
+								},
+								{
+									"key": "available",
+									"value": "true",
+									"contentType": "multipart/form-data",
+									"type": "default"
+								},
+								{
+									"key": "price",
+									"value": "150",
+									"type": "default"
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{port}}/api/v1/products",
+							"host": [
+								"{{port}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Updating a product",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "productName",
+									"value": "Beans",
+									"type": "default"
+								},
+								{
+									"key": "productImg",
+									"type": "file",
+									"src": "/home/space/Desktop/e-soko-images/beans.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{port}}/api/v1/products/63e338f90ffb1e1e95577aa1?",
+							"host": [
+								"{{port}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"products",
+								"63e338f90ffb1e1e95577aa1"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deleting a product",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{port}}/api/v1/products/63e36199c4511339d97f02d0",
+							"host": [
+								"{{port}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"products",
+								"63e36199c4511339d97f02d0"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Get authenticated user",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{port}}/api/v1/users/",
+							"host": [
+								"{{port}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Signup",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "username",
+									"value": "spacecadet",
+									"type": "default"
+								},
+								{
+									"key": "email",
+									"value": "spacecadet@spacex.com",
+									"type": "default"
+								},
+								{
+									"key": "phoneNumber",
+									"value": "+254123456789",
+									"type": "default"
+								},
+								{
+									"key": "location",
+									"value": "Nairobi",
+									"type": "default"
+								},
+								{
+									"key": "password",
+									"value": "outtaspace",
+									"type": "default"
+								},
+								{
+									"key": "profileImg",
+									"type": "file",
+									"src": "/home/space/Desktop/e-soko-images/astrounant.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{port}}/api/v1/users/signup",
+							"host": [
+								"{{port}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "logout",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{port}}/api/v1/users/logout",
+							"host": [
+								"{{port}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"spacecadet\",\n    \"password\": \"outtaspace\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{port}}/api/v1/users/login",
+							"host": [
+								"{{port}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Packages",
+			"item": [
+				{
+					"name": "Get all packages",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{port}}/api/v1/packages/",
+							"host": [
+								"{{port}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"packages",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create a package",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"userId\":\"63e3fb144d1547e4dd514e71\",\n    \"packageName\":\"My Comrade Package\",\n    \"items\": [{\n        \"productId\":\"9e4712ad412990686043ef6a34a8fa9f\",\n        \"price\":\"800\"\n    },\n    {\n        \"productId\":\"c2eae4863bfbd6651adb11f33504d3d4\",\n        \"price\":\"750\"\n    }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{port}}/api/v1/packages/",
+							"host": [
+								"{{port}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"packages",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Updating a package",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"_id\": \"63e7d74f570597fe1d5eef1f\",\n        \"userId\": \"63e3fb144d1547e4dd514e71\",\n        \"packageName\": \"My everyday Package\",\n        \"items\": [\n            {\n                \"productId\": \"63e361d6c4511339d97f02d6\",\n                \"quantity\": \"2\"\n            },\n            {\n                \"productId\": \"63e3f6ac3e1014ec4b4536d8\",\n                \"quantity\": \"4\"\n            },\n            {\n                \"productId\": \"63e3fc4c1da7e0415cc2e5b8\",\n                \"quantity\": \"3\"\n            }\n        ],\n        \"__v\": 1\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{port}}/api/v1/packages/63e7d74f570597fe1d5eef1f",
+							"host": [
+								"{{port}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"packages",
+								"63e7d74f570597fe1d5eef1f"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Orders",
+			"item": [
+				{
+					"name": "Get all orders",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{port}}/api/v1/orders/",
+							"host": [
+								"{{port}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"orders",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create an order",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"userId\": \"63e3fb144d1547e4dd514e71\",\n    \"price\": \"2300\",\n    \"paymentType\": \"mpesa\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{port}}/api/v1/orders/63e7e4b98e72e85050fb7038",
+							"host": [
+								"{{port}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"orders",
+								"63e7e4b98e72e85050fb7038"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "port",
+			"value": "http://localhost:5000",
+			"type": "default"
+		}
+	]
+}
